@@ -10,7 +10,7 @@
     <label for="came">Come</label>
     <input type="text" th:field="*{came}" id="came">
     <label for="description">description</label>
-    <input type="text" th:field="*{description}" id="description">
+    <input type="text" th:field="*{description}" id="description" placeholder="USER">
     <label for="price">price</label>
     <input type="text" th:field="*{price}" id="price">
     <label for="producer">producer</label>
@@ -19,6 +19,7 @@
     <input type="text" th:field="*{weighs}" id="weighs">
     <input type="submit" value="Add">
 </form>
+
 <h1>Twoje Zamowienia</h1>
 <tr th:each="order: ${orders}">
   <td th:text="${order.getDescription()}"/><br/>
@@ -26,6 +27,7 @@
   <td th:text="${order.getCame()}"/><br/>
   <td th:text="${order.getProducer()}"/><br/>
   <td th:text="${order.getWeighs()}"/><br/>
+    <td th:text="${order}"/><br/>
     <td th:text="${order.getCommodity()}"/><br/>
     <form action="#" th:action="@{'/incomings/{id}'(id=${order.getId()})}" th:method="delete">
         <button type="submit" class="btn">

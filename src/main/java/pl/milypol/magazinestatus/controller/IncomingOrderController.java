@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.milypol.magazinestatus.entity.IncomingOrder;
 import pl.milypol.magazinestatus.repository.IncomingOrderRepository;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/incomings")
 public class IncomingOrderController {
@@ -34,11 +36,11 @@ public class IncomingOrderController {
 
     @GetMapping("/{id}")
     public String getIncomingOrder(@PathVariable Long id,Model model){
-        model.addAttribute("order" ,incomingOrderRepository.findById(id));
-        return "/editIncomingOrder";
+        model.addAttribute("order", incomingOrderRepository.findById(id).get());
+        return "editIncomingOrder";
     }
 
-    @PatchMapping
+    @PutMapping
     public String editIncomingOrder(IncomingOrder incomingOrder){
         incomingOrderRepository.save(incomingOrder);
         return "redirect:/incomings";
