@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <form th:action="@{/incomings}" th:object="${order}" th:method="put">
+
+         <input type="hidden" th:field="*{id}" id="id">
+         <label for="came">Come</label>
+         <input type="text" th:field="*{came}" id="came">
+         <label for="description">description</label>
+         <input type="text" th:field="*{description}" id="description" placeholder="USER">
+         <label for="price">price</label>
+         <input type="text" th:field="*{price}" id="price">
+         <label for="producer">producer</label>
+         <input type="text" th:field="*{producer}" id="producer">
+         <label for="weighs">weighs</label>
+         <input type="text" th:field="*{weighs}" id="weighs">
+         <input type="submit" value="Edit">
+     </form>
+</body>
+</html>
