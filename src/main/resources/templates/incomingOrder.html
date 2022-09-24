@@ -29,16 +29,17 @@
   <td th:text="${order.getWeighs()}"/><br/>
     <td th:text="${order}"/><br/>
     <td th:text="${order.getCommodity()}"/><br/>
+    <td><a th:href="@{/incomings(id=${order.getId()})}">Detalis</a></td>
     <form action="#" th:action="@{'/incomings/{id}'(id=${order.getId()})}" th:method="delete">
         <button type="submit" class="btn">
             Delete
         </button>
     </form>
-      <form action="#" th:action="@{'/incomings/{id}'(id=${order.getId()})}" th:method="get">
-          <button type="submit" class="btn">
-              Edit
-          </button>
-      </form>
+<!--      <form action="#" th:action="@{'/incomings?{id}'(id=${order.getId()})}" th:method="get">-->
+<!--          <button type="submit" class="btn">-->
+<!--              Edit-->
+<!--          </button>-->
+<!--      </form>-->
 
     <br/><br/>
 </tr>
