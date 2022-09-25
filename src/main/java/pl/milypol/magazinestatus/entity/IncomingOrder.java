@@ -20,4 +20,6 @@ public class IncomingOrder {
     private String producer;
     @OneToMany
     private List<Commodity> commodity;
+    @ManyToOne
+    private User user;
 }
