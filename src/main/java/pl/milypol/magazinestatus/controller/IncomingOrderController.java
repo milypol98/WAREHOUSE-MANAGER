@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.milypol.magazinestatus.entity.IncomingOrder;
 import pl.milypol.magazinestatus.repository.IncomingOrderRepository;
 
-import java.util.Optional;
-
 @Controller
 @RequestMapping("/incomings")
 public class IncomingOrderController {
@@ -16,6 +14,7 @@ public class IncomingOrderController {
     public IncomingOrderController(IncomingOrderRepository incomingOrderRepository) {
         this.incomingOrderRepository = incomingOrderRepository;
     }
+
 
     @GetMapping
     public String IncomingOrder(Model model) {
@@ -28,14 +27,14 @@ public class IncomingOrderController {
         incomingOrderRepository.save(order);
         return "redirect:/incomings";
     }
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "{id}")
     public String deleteIncomingOrder(@PathVariable Long id) {
         incomingOrderRepository.deleteById(id);
         return "redirect:/incomings";
     }
 
-    @GetMapping("/{id}")
-    public String getIncomingOrder(@PathVariable Long id,Model model){
+    @GetMapping("{id}")
+    public String getIncomingOrder(@RequestParam Long id,Model model){
         model.addAttribute("order", incomingOrderRepository.findById(id).get());
         return "editIncomingOrder";
     }
