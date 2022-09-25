@@ -14,8 +14,8 @@ public class Commodity {
     private Long id;
     private TypeCommodity type;
     private Long price;
-    @ManyToOne
-    private IncomingOrder incoming;
     private Date Registry;
+    @ManyToOne
+    private IncomingOrder incomingOrder;
 
 }

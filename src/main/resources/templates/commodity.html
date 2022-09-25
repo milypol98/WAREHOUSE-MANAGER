@@ -8,7 +8,7 @@
 <h1>Twoje Produkty</h1>
 <tr th:each="commodity: ${commodities}">
     <td th:text="${commodity.getRegistry()}"/><br/>
-    <td th:text="${commodity.getIncoming().getDescription()}"/><br/>
+    <td th:text="${commodity.getIncomingOrder().getDescription()}"/><br/>
     <td th:text="${commodity.getPrice()}"/><br/>
     <td th:text="${commodity.getType()}"/><br/>
     <br/><br/>

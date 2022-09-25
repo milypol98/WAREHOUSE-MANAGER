@@ -10,13 +10,14 @@ import pl.milypol.magazinestatus.repository.CommodityRepository;
 public class CommodityController {
     private final CommodityRepository commodityRepository;
 
+
     public CommodityController(CommodityRepository commodityRepository) {
         this.commodityRepository = commodityRepository;
     }
 
     @GetMapping
-    public String getCommodity(Model model) {
-        model.addAttribute("commodities", commodityRepository.findAll());
+    public String getCommodity(@RequestParam Long id, Model model) {
+        model.addAttribute("commodities", commodityRepository.findAllByIncomingOrderId(id));
         return "commodity";
     }
     @DeleteMapping(value = "/{id}")
