@@ -9,14 +9,20 @@
 <form action="#" th:action="@{/commodity}" th:object="${commodity}" method="post">
     <label for="registry">registry</label>
     <input type="text" th:field="*{registry}" id="registry">
+
     <label for="price">price</label>
     <input type="text" th:field="*{price}" id="price">
-    <label for="type">type</label>
-    <input type="text" th:field="*{type}" id="type">
+
+    <select th:field="*{type}">
+        <option th:each="type: ${types}" th:value="${type.getId()}" th:text="${type.type}">
+        </option>
+    </select>
 
     <input type="hidden" th:field="${incomingOrderId}" id="incomingOrder">
+
     <input type="submit" value="Add">
 </form>
+
 <h2>Twoje Produkty</h2>
 <tr th:each="commodity: ${commodities}">
     <td th:text="${commodity.getRegistry()}"/><br/>
